@@ -4,8 +4,7 @@
         "commandName": "Project",
         "commandLineArgs": "--port 7107",
         "launchBrowser": false,
-        "environmentVariables": {
-            //"DOTNET_ENVIRONMENT": "Development"
+        "environmentVariables": {            
             "DOTNET_ENVIRONMENT": "Production"
         }
     }

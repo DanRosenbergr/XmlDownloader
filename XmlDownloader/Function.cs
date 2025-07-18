@@ -19,7 +19,7 @@ namespace XmlDownloader
         }
 
         [Function("XmlDownloader")]
-        public async Task Run([TimerTrigger("0 */2 * * * *")] TimerInfo myTimer) {
+        public async Task Run([TimerTrigger("0 0 * * * *")] TimerInfo myTimer) {
 
             _logger.LogInformation($"Function triggered at {DateTime.UtcNow}");
 

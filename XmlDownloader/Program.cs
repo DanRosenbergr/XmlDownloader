@@ -11,7 +11,7 @@ var host = new HostBuilder()
         var env = context.HostingEnvironment;
 
         builder.AddJsonFile("local.settings.json", optional: true, reloadOnChange: true)
-              .AddJsonFile($"appsettings.Production.json", optional: true)
+              .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
               .AddEnvironmentVariables();
     })
     .ConfigureServices((context, services) => {
