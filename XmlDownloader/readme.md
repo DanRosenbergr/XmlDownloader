@@ -1,11 +1,35 @@
-# TimerTrigger - C<span>#</span>
+# XmlDownloader
 
-The `TimerTrigger` makes it incredibly easy to have your functions executed on a schedule. This sample demonstrates a simple use case of calling your function every 5 minutes.
+This Azure Function downloads XML data from a weather station every hour, converts it to JSON, and saves it to a SQL database. If the weather station is offline or unreachable, a blank record is saved with a text indicating the outage. If the XML is available but cannot be converted to JSON, an error is logged and a partial record is saved.
 
-## How it works
+Requirements
+- .NET 8 SDK
+- Azure Functions Core Tools
+- SQL Server LocalDB or Azure SQL Database
 
-For a `TimerTrigger` to work, you provide a schedule in the form of a [cron expression](https://en.wikipedia.org/wiki/Cron#CRON_expression)(See the link for full details). A cron expression is a string with 6 separate expressions which represent a given schedule via patterns. The pattern we use to represent every 5 minutes is `0 */5 * * * *`. This, in plain text, means: "When seconds is equal to 0, minutes is divisible by 5, for any hour, day of the month, month, day of the week, or year".
+Local Development Setup
+**Clone the repository:**
+   
+   git clone https://github.com/DanRosenbergr/XmlDownloader.git
+   cd XmlDownloader
 
-## Learn more
+**Create a local.settings.json file:**
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "XmlApi__Url": "https://api.weatherapi.com/v1/current.xml?key=YOUR_API_KEY&q=Ostrava&aqi=no"
+  }
+}
 
-<TODO> Documentation
+**Create appsettings.Development.json with the local database connection string:**
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=XmlDownloader;Integrated Security=True;"
+  }
+}
+
+**Run EF Core migration to set up the database:**
+
+**Run the function app locally:**
