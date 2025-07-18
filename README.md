@@ -18,9 +18,8 @@ Local Development Setup
 
 
 - Create a local.settings.json file:
-  
+```
 {
-
   "IsEncrypted": false,
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
@@ -28,13 +27,16 @@ Local Development Setup
     "XmlApi__Url": "https://api.weatherapi.com/v1/current.xml?key=YOUR_API_KEY&q=Ostrava&aqi=no"
   }
 }
+```
 
 - Create appsettings.Development.json with the local database connection string:
+```
 {
   "ConnectionStrings": {
     "DefaultConnection": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=XmlDownloader;Integrated Security=True;"
   }
 }
+```
 
 - Run EF Core migration to set up the database:
 
