@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "XmlDownloader": {
+        "commandName": "Project",
+        "commandLineArgs": "--port 7107",
+        "launchBrowser": false,
+        "environmentVariables": {
+            //"DOTNET_ENVIRONMENT": "Development"
+            "DOTNET_ENVIRONMENT": "Production"
+        }
+    }
+  }
+}
