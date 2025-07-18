@@ -8,13 +8,19 @@ Requirements
 - SQL Server LocalDB or Azure SQL Database
 
 Local Development Setup
+
+
 - Clone the repository:
-   
+
+
    git clone https://github.com/DanRosenbergr/XmlDownloader.git
    cd XmlDownloader
 
+
 - Create a local.settings.json file:
+  
 {
+
   "IsEncrypted": false,
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
