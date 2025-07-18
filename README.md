@@ -8,12 +8,17 @@ Requirements
 - SQL Server LocalDB or Azure SQL Database
 
 Local Development Setup
-**Clone the repository:**
-   
+
+
+- Clone the repository:
+
+
    git clone https://github.com/DanRosenbergr/XmlDownloader.git
    cd XmlDownloader
 
-**Create a local.settings.json file:**
+
+- Create a local.settings.json file:
+```
 {
   "IsEncrypted": false,
   "Values": {
@@ -22,14 +27,17 @@ Local Development Setup
     "XmlApi__Url": "https://api.weatherapi.com/v1/current.xml?key=YOUR_API_KEY&q=Ostrava&aqi=no"
   }
 }
+```
 
-**Create appsettings.Development.json with the local database connection string:**
+- Create appsettings.Development.json with the local database connection string:
+```
 {
   "ConnectionStrings": {
     "DefaultConnection": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=XmlDownloader;Integrated Security=True;"
   }
 }
+```
 
-**Run EF Core migration to set up the database:**
+- Run EF Core migration to set up the database:
 
-**Run the function app locally:**
+- Run the function app locally:
